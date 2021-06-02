@@ -1,0 +1,229 @@
+repositorie name : repo-31-5
+Central repo:      https://github.com/santhosh693/repo-31-5.git
+
+$ git config --global user.name "santhosh"
+$ git config --global user.email "vullysanthosh1@gmail.com"
+$ git config --global push.default "simple"
+
+
+===> crating a local copy of workspace
+$ git clone <clocalrepoentral repo> <dest-local>
+$ cd repo-31-5
+$ echo "First line" > 1.java  (creating a file)
+
+
+
+=> To check status
+$ git status
+
+
+
+=> Adding the file to staging
+$ git add <file> (to add single file)
+$ git add .      (to add all files in pwd)
+
+
+
+=> To Commit the file
+$ git commit -m "first change for dummy release"
+
+--> if you make any changes in your working directory for every time you need to do this steps
+    $ git add  -> $ git clommite -m "nnnn"
+
+
+
+=> To see all commit ids in current repository
+$ git log   (from latest to oledest commit id)
+$ git log -1 (from the top its going to show only one commit id,(..234566..))
+$ git log --oneline (it will just give you only the commit message)
+$ git log --oneline -2
+
+
+
+
+=> how to see full details about commit 
+$ git show <commit id>
+
+
+
+
+=> To share all changes to central repository
+$ git push  (git config --global push.default "simple")
+
+
+
+
+=> To get updated changes from repository to local
+$ git pull
+
+
+
+=> this will show you the branch you are working and all available branches
+$ git branch
+
+
+
+=> To create new branch name
+$ git branch <newbranch name>
+  EX: $ git branch IOS
+
+
+
+=> To go from one branch to another 
+$ git checkout <branchname> (it is in local)
+  EX: git checkout IOS
+
+
+
+=>** If you dont hove IOS branch in repository then also you can push your changes by merge
+           (as a good practice that you always go to your destination branch abd run the command) 
+$ git merge <srcbranch> <destbranch>
+  EX: git merge IOS 
+
+ ->If you want to merge only any commit one then
+   $ git cherry-pick <commitID>
+
+
+
+
+=> how to undo and take backup file you are working with the working directory (this can be happen before file goes to staging area)
+   -> go to your workspace -> do changes in your file 
+   -> $ git stash 
+   -> $ git stash list            (to list all stash available or backuped files)
+   -> $ git apply stash@{IndexNo} (To recover backup from stash)
+   -> $ git stash clear           (to delete all stash backups)
+
+
+
+=> how to undo in before commit  
+ $ git reset (soft mood: undo from repository reference)
+ $ git reset (mixed mood:undo from repo + stagingarea)
+ $ git reset (hard mood: undo from repo + stagingarea + working directory)
+
+=> how to undo after commit
+ $ git revert <commit ID>  (it will not delete the commit. on tot of it it will create a new commitID of old content)
+
+ ->$ git checkout <commit ID> (git will show the content of older commitID not latest commitID)
+  |
+  |->$ git checkout <branch >  (to get into the latest commitId)  
+
+
+
+=> Tags: Git has the option to tag a commit in the repository history so that you find it earier at a later point in time
+   $ git tag (gives list of tags)
+   
+   -> how to create tag
+    $ git tag -a "tag name" -m "comment msg" <commit ID>     
+      EX:git tag -a "dev-1" -m "release 1.2" b27671e
+  
+   Note: one commit id can have multiple tags but you cant use same tag on another commit id
+
+  -> $ git show <tag name> (internally it will show us the commit id details) 
+       EX: git show dev-1  
+
+  -> how to delete tag
+     $ git tag -d dev-1
+
+   -> push the tags
+     $ git push --tags
+
+
+
+=> Merge VS Rebase
+   - rebase another way of merging but what it does is it will not be adding a new commit id 
+     (In merge actually creates a new commit id in the destination branch)    
+
+  EX: Step1:
+      - create test branch
+      - create a commit ID on master
+      - create 2 commit ID's on Test
+      - REbase
+      $ git checkout test
+      $ git rebase master
+
+      Step1:Rebase
+      $ git checkout master
+      $ git rebase test
+  
+
+
+
+=> Push/pull To Other Central Repos
+   -> Add a new Remote reference
+      $ git remote add <ReferenceName> <NewRemoteURL>
+        ex: git remte add dev <clounURL> 
+
+   -> Push a change
+      $ git push <ReferenceName> <Branch>
+   -> pull a change
+      $ git pull <ReferenceName> <Branch>
+        EX: git pull dev master
+
+
+
+
+=> Fetch VS Pull
+   - fetch a change: (Remote repository TO Local git repository)
+     $ git fetch <ReferenceName> <Branch>
+   - Pull a change:  (Remote repository TO WORKING Directory)
+     $ git pull <ReferenceName> <Branch>
+
+
+
+
+
+=> we can ignore any number of files or a pattern or folder but git ignore is again a file 
+    that is available in the repository so you should add git ignore file as a part of your repository
+   $ gitignore 
+
+
+
+
+=> in git if you want to do a clean build which is nothing but you want to delete all the untracked files by
+   $ git clean -n (or)
+   $ git clean -f
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
