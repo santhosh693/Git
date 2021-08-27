@@ -28,7 +28,7 @@ $ git add .      (to add all files in pwd)
 $ git commit -m "first change for dummy release"
 
 --> if you make any changes in your working directory for every time you need to do this steps
-    $ git add  -> $ git clommite -m "nnnn"
+    $ git add  -> $ git commite -m "nnnn"
 
 
 
@@ -101,7 +101,7 @@ $ git merge <srcbranch> <destbranch>
  $ git reset (hard mood: undo from repo + stagingarea + working directory)
 
 => how to undo after commit
- $ git revert <commit ID>  (it will not delete the commit. on tot of it it will create a new commitID of old content)
+ $ git revert <commit ID>  (it will not delete the commit. on top of it it will create a new commitID of old content)
 
  ->$ git checkout <commit ID> (git will show the content of older commitID not latest commitID)
   |
